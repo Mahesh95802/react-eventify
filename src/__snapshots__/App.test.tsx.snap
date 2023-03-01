@@ -17,7 +17,7 @@ exports[`renders learn react link 1`] = `
         class="events"
       >
         <div
-          class="filter basic-padding"
+          class="filter-body basic-padding"
         >
           <div
             class="filter-header"
