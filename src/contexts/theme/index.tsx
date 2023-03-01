@@ -6,7 +6,7 @@ import { ThemeProviderProp } from "../../interfaces/themeProp";
 export const ThemeContext = createContext({});
 
 export const ThemeProvider: React.FC<ThemeProviderProp> = ({ children }) => {
-    const [theme, setTheme] = React.useState<string>('');
+    const [theme, setTheme] = React.useState<'red' | 'green' | 'blue'>('red');
     return (
         <ThemeContext.Provider value={{ theme, setTheme }}> {children} </ThemeContext.Provider>
     )

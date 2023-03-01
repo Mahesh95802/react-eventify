@@ -1,0 +1,18 @@
+.event-list {
+    display: grid;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 0));
+    grid-column-gap: 5vh;
+    grid-row-gap: 5vh;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    /* min-height: 80vh; */
+}
+
+@media screen and (max-width: 842px){
+    .event-list{
+        justify-content: center;
+    }
+}
