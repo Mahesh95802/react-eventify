@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render correctly 1`] = `
+<div>
+  <header
+    class="header basic-padding"
+  >
+    <p>
+      My 
+      <span
+        style="font-weight: bolder;"
+      >
+        Record
+      </span>
+       Shelf
+    </p>
+  </header>
+</div>
+`;
