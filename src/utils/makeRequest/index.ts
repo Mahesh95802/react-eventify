@@ -9,7 +9,7 @@ const makeRequest = async (path: string, options: RequestInit) => {
         };
         return await (await fetch(`${BACKEND_URL}${path}`, options)).json();
     } catch(err) {
-        throw new Error();
+        // throw new Error();
     }
 };
 

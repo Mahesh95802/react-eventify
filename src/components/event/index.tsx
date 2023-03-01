@@ -42,7 +42,7 @@ const Event: React.FC<EventProp> = (prop) => {
                         {isRegistered ? "Registered" : (prop.areSeatsAvailable ? null : "No Seates Available")}
                     </div>
                     <div className="is-bookmarked" onClick={bookmarkEventHandler}>
-                        <FontAwesomeIcon icon={isBookmarked ? ["fas", "bookmark"] : ["fas", "bookmark"]}/>
+                        <FontAwesomeIcon icon={isBookmarked ? ["fas", "bookmark"] : ["fas", "circle-xmark"]}/>
                     </div>
                 </div>
                 {

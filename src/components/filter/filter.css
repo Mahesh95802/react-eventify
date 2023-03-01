@@ -1,14 +1,4 @@
-.filter-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
-.filter-body{
+.filter-radios{
     display: grid;
-    grid-template-columns: repeat(auto-fit, 2);
-    margin-top: 40px;
-    margin-bottom: 40px;
+    grid-template-columns: 50% 50%;    
 }

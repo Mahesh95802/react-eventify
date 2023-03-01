@@ -5,7 +5,6 @@ import HomePage from './pages/homePage';
 import './App.css';
 import NotFoundPage from './pages/notFoundPage';
 import EventPage from './pages/eventPage';
-import { ThemeContext } from './contexts/theme';
 import makeRequest from './utils/makeRequest';
 import { GET_THEME, PUT_THEME } from './constants/endpoints';
 import { Theme, ThemeProp, ThemesResponse } from './interfaces/themes';

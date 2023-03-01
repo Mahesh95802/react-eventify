@@ -1,43 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FilterProp } from "../../interfaces/filter";
-import { faS, faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-library.add(faS, faChevronUp, faChevronDown);
 
 import "./filter.css";
 
-const Filter: React.FC<{ prop: FilterProp, filterEventHandler: any }> = ({ prop, filterEventHandler }) => {
-    
-    const [isFilterOpen, setIsFilterOpen] = React.useState<boolean>(false);
+const Filter: React.FC<{ prop: FilterProp, filterEventHandler: any }> = ({prop, filterEventHandler}) => {
+
+    useEffect(() => {
+        console.log(prop);
+        return () => {
+            filterEventHandler({ name: prop.name, all: true });
+        }
+    }, [prop])
 
     const filterChangeEventHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.value);
-        filterEventHandler({ name: e.target.value });
+        console.log({ name: prop.name, [e.target.value]: e.target.checked });
+        filterEventHandler({ name: prop.name, [e.target.value]: e.target.checked });
     }
 
-
     return (
-        <div className="filter basic-padding">
-            <div className="filter-header">
-                <div className="filter-Drop" onClick={() => setIsFilterOpen(!isFilterOpen)}>
-                    Filter <FontAwesomeIcon icon={isFilterOpen ? ['fas', 'chevron-up'] : ['fas', 'chevron-down']} />
-                </div>
-                <div className="filter-search">
-                    <input type="text" placeholder="Search" id="search" onChange={filterChangeEventHandler}/>
-                </div>
-            </div>
-            {
-                isFilterOpen &&
-                    <form className="filter-body">
-                        <label htmlFor=""><input type="radio" name="all" id="all" value="all" checked={prop.all} onChange={filterChangeEventHandler}/>All</label>
-                        <label htmlFor=""><input type="radio" name="Registered" id="Registered" value="registered" checked={prop.registered} onChange={filterChangeEventHandler}/>Registered</label>
-                        <label htmlFor=""><input type="radio" name="Available" id="Available" value="areSeatsAvailable" checked={prop.areSeatsAvailable} onChange={filterChangeEventHandler}/>Available</label>
-                        <label htmlFor=""><input type="radio" name="Bookmarked" id="Bookmarked" value="bookmarked" checked={prop.bookmarked} onChange={filterChangeEventHandler}/>Bookmarked</label>
-                    </form>
-            }
-        </div>
+        <form className="filter-radios">
+            <label htmlFor=""><input type="radio" name="all" id="all" value="all" checked={prop.all} onChange={filterChangeEventHandler}/>All</label>
+            <label htmlFor=""><input type="radio" name="Registered" id="Registered" value="registered" checked={prop.registered} onChange={filterChangeEventHandler}/>Registered</label>
+            <label htmlFor=""><input type="radio" name="Available" id="Available" value="areSeatsAvailable" checked={prop.areSeatsAvailable} onChange={filterChangeEventHandler}/>Available</label>
+            <label htmlFor=""><input type="radio" name="Bookmarked" id="Bookmarked" value="bookmarked" checked={prop.bookmarked} onChange={filterChangeEventHandler}/>Bookmarked</label>
+        </form>
     )
-};
+}
 
 export default Filter;

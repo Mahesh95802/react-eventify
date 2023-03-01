@@ -4,7 +4,7 @@ import { EventProp } from '../../interfaces/event';
 import { FilterProp } from '../../interfaces/filter';
 import makeRequest from '../../utils/makeRequest';
 import Event from '../event';
-import Filter from '../filter';
+import FilterBody from '../filterBody';
 
 import './events.css'
 
@@ -39,7 +39,7 @@ const Events: React.FC  = () => {
 
     return (
         <div className="events">
-            <Filter prop={filter} filterEventHandler={handleFilterEvent}/>
+            <FilterBody prop={filter} filterEventHandler={handleFilterEvent}/>
             <div className='event-list basic-padding'>
                 {events && events.map((event) => (
                     <Event key={event.id} {...event} />
