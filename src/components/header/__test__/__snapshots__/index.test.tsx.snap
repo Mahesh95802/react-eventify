@@ -1,19 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header should render correctly 1`] = `
-<div>
+exports[`renders learn react link 1`] = `
+<DocumentFragment>
   <header
-    class="header basic-padding"
+    class="header basic-padding bg-color"
   >
     <p>
-      My 
-      <span
-        style="font-weight: bolder;"
-      >
-        Record
-      </span>
-       Shelf
+      Eventify
     </p>
   </header>
-</div>
+</DocumentFragment>
 `;

@@ -1,9 +1,8 @@
-import { render } from "@testing-library/react";
-import Header from "..";
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import Header from '..';
 
-describe('Header', () => {
-    it('should render correctly', () => {
-        const { container } = render(<Header />);
-        expect(container).toMatchSnapshot();
-    });
+test('renders learn react link', () => {
+  const { asFragment } = render(<Header />);
+  expect(asFragment()).toMatchSnapshot();
 });

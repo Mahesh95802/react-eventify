@@ -12,14 +12,14 @@ const Footer: React.FC<ThemeProp> = (prop) => {
             <div className="themes">
                 {
                     prop.themes 
-                    &&  prop.themes.map((theme: Theme) => (
-                            <button onClick={() => prop.setThemeHandler(theme)} key={theme.id} style={{ backgroundColor: theme.colorHexCode }}>
-                                {theme.colorHexCode}
+                    &&  prop.themes.filter((theme) => theme.id !== prop.theme.id).map((theme: Theme) => (
+                            <button className='theme-button' onClick={() => prop.setThemeHandler(theme)} key={theme.id} style={{ backgroundColor: theme.colorHexCode }} data-testid='theme-button'>
+                                {/* {theme.colorHexCode} */}
                             </button>
                         ))
                 }
             </div>
-            <div className="save-theme">
+            <div className="theme-save-button">
                 <button>Save Theme</button>
             </div>
         </footer>

@@ -10,3 +10,13 @@
     /* width:fit-content; */
     /* position: absolute; */
 }
+
+.theme-button{
+    height: 30px;
+    width: 30px;
+}
+
+.theme-save-button{
+    height: 30px;
+    width: 100px
+}

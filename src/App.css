@@ -22,3 +22,9 @@
   background-color: #000000;
   color: white
 }
+
+button{
+  background-color: white;
+  border: 0px;
+  border-radius: 5%;
+}
