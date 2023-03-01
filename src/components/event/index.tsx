@@ -38,7 +38,12 @@ const Event: React.FC<EventProp> = (prop) => {
                 <div className="event-date">{`DATE: ${String(new Date(prop.datetime)).split('+')[0]}`}</div>
                 <div className="event-user-info">
                     <div className="is-registered">
-                        <FontAwesomeIcon icon={isRegistered ? ["fas", "circle-check"] : (prop.areSeatsAvailable ? ["fas", "circle-dot"] : ["fas", "circle-xmark"])} />
+                        {
+                            isRegistered
+                            ? <FontAwesomeIcon icon={["fas", "circle-check"]} />
+                            : ( !prop.areSeatsAvailable && <FontAwesomeIcon icon={["fas", "circle-xmark"]} />)
+                        }
+                        {/* <FontAwesomeIcon icon={isRegistered ? ["fas", "circle-check"] : (prop.areSeatsAvailable ? ["fas", "circle-dot"] : ["fas", "circle-xmark"])} /> */}
                         {isRegistered ? "Registered" : (prop.areSeatsAvailable ? null : "No Seates Available")}
                     </div>
                     <div className="is-bookmarked" onClick={bookmarkEventHandler}>

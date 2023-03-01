@@ -13,7 +13,7 @@ const FilterBody: React.FC<{ prop: FilterProp, filterEventHandler: any }> = ({ p
     const [isFilterOpen, setIsFilterOpen] = React.useState<boolean>(false);
 
     const filterChangeEventHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         filterEventHandler({ ...prop, name: e.target.value });
     }
 
@@ -35,12 +35,6 @@ const FilterBody: React.FC<{ prop: FilterProp, filterEventHandler: any }> = ({ p
             {
                 isFilterOpen &&
                     <Filter prop={prop} filterEventHandler={filterEventHandler}/>
-                    // <form className="filter-body">
-                    //     <label htmlFor=""><input type="radio" name="all" id="all" value="all" checked={prop.all} onChange={filterChangeEventHandler}/>All</label>
-                    //     <label htmlFor=""><input type="radio" name="Registered" id="Registered" value="registered" checked={prop.registered} onChange={filterChangeEventHandler}/>Registered</label>
-                    //     <label htmlFor=""><input type="radio" name="Available" id="Available" value="areSeatsAvailable" checked={prop.areSeatsAvailable} onChange={filterChangeEventHandler}/>Available</label>
-                    //     <label htmlFor=""><input type="radio" name="Bookmarked" id="Bookmarked" value="bookmarked" checked={prop.bookmarked} onChange={filterChangeEventHandler}/>Bookmarked</label>
-                    // </form>
             }
         </div>
     )
