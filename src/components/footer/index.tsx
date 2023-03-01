@@ -8,7 +8,7 @@ import './footer.css';
 const Footer: React.FC<ThemeProp> = (prop) => {
 
     return (
-        <footer className="footer basic-padding bg-color">
+        <footer className="footer basic-padding bg-color" data-testid='footer'>
             <div className="themes">
                 {
                     prop.themes 

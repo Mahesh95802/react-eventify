@@ -59,6 +59,7 @@ exports[`renders learn react link 1`] = `
       </div>
       <footer
         class="footer basic-padding bg-color"
+        data-testid="footer"
       >
         <div
           class="themes"
