@@ -1,18 +1,21 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Event from "../../components/event";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 import { GET_EVENT_BY_ID } from "../../constants/endpoints";
 import { EventProp } from "../../interfaces/event";
+import { ThemeProp } from "../../interfaces/themes";
 import makeRequest from "../../utils/makeRequest";
 
 import "./eventPage.css";
 
-const EventPage: React.FC = () => {
+const EventPage: React.FC<ThemeProp> = (prop) => {
 
     const [event, setEvent] = React.useState<EventProp | null>(null)
+    const navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
+    // if(isNaN(Number(id))) navigate('/404/notfound');
 
     useEffect(() => {
         makeRequest(GET_EVENT_BY_ID(Number(id)).path, { method: GET_EVENT_BY_ID(Number(id)).method })
@@ -26,7 +29,7 @@ const EventPage: React.FC = () => {
                 <div className="event-body basic-padding">
                     <Event { ...{ ...event, isRegisterable: true } as EventProp }/>
                 </div>
-                <Footer /> 
+                <Footer {...prop as ThemeProp}/> 
             </>
     )
 };

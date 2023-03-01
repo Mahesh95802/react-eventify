@@ -7,12 +7,14 @@ library.add(faS, faChevronUp, faChevronDown);
 
 import "./filter.css";
 
-const Filter: React.FC<FilterProp> = (prop) => {
+const Filter: React.FC<{ prop: FilterProp, filterEventHandler: any }> = ({ prop, filterEventHandler }) => {
     
     const [isFilterOpen, setIsFilterOpen] = React.useState<boolean>(false);
-    const [Filter, setFilter] = React.useState<string[]>(["All"])
 
-    const filterEventHandler = (e: React.ChangeEvent<HTMLInputElement>) => {}
+    const filterChangeEventHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(e.target.value);
+        filterEventHandler({ name: e.target.value });
+    }
 
 
     return (
@@ -22,17 +24,17 @@ const Filter: React.FC<FilterProp> = (prop) => {
                     Filter <FontAwesomeIcon icon={isFilterOpen ? ['fas', 'chevron-up'] : ['fas', 'chevron-down']} />
                 </div>
                 <div className="filter-search">
-                    <input type="text" placeholder="Search" id="search" />
+                    <input type="text" placeholder="Search" id="search" onChange={filterChangeEventHandler}/>
                 </div>
             </div>
             {
                 isFilterOpen &&
-                    <div className="filter-body">
-                        <input type="checkbox" name="all" id="all" value="All" /><label htmlFor="">All</label>
-                        <input type="checkbox" name="Registered" id="Registered" value="Registered" /><label htmlFor="">Registered</label>
-                        <input type="checkbox" name="Available" id="Available" value="Available" /><label htmlFor="">Available</label>
-                        <input type="checkbox" name="Bookmarked" id="Bookmarked" value="Bookmarked" /><label htmlFor="">Bookmarked</label>
-                    </div>
+                    <form className="filter-body">
+                        <label htmlFor=""><input type="radio" name="all" id="all" value="all" checked={prop.all} onChange={filterChangeEventHandler}/>All</label>
+                        <label htmlFor=""><input type="radio" name="Registered" id="Registered" value="registered" checked={prop.registered} onChange={filterChangeEventHandler}/>Registered</label>
+                        <label htmlFor=""><input type="radio" name="Available" id="Available" value="areSeatsAvailable" checked={prop.areSeatsAvailable} onChange={filterChangeEventHandler}/>Available</label>
+                        <label htmlFor=""><input type="radio" name="Bookmarked" id="Bookmarked" value="bookmarked" checked={prop.bookmarked} onChange={filterChangeEventHandler}/>Bookmarked</label>
+                    </form>
             }
         </div>
     )

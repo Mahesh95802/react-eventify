@@ -27,7 +27,7 @@ const Event: React.FC<EventProp> = (prop) => {
     };
 
     return (
-        <div className="event">
+        <div className="event bg-color">
             <div className="event-image">
                 <img src={prop.imgUrl} alt="Event Image" />
             </div>
@@ -38,7 +38,7 @@ const Event: React.FC<EventProp> = (prop) => {
                 <div className="event-date">{`DATE: ${String(new Date(prop.datetime)).split('+')[0]}`}</div>
                 <div className="event-user-info">
                     <div className="is-registered">
-                        <FontAwesomeIcon icon={isRegistered ? ["fas", "circle-check"] : (prop.areSeatsAvailable ? ["far", "circle-dot"] : ["fas", "circle-xmark"])} />
+                        <FontAwesomeIcon icon={isRegistered ? ["fas", "circle-check"] : (prop.areSeatsAvailable ? ["fas", "circle-dot"] : ["fas", "circle-xmark"])} />
                         {isRegistered ? "Registered" : (prop.areSeatsAvailable ? null : "No Seates Available")}
                     </div>
                     <div className="is-bookmarked" onClick={bookmarkEventHandler}>
@@ -46,7 +46,7 @@ const Event: React.FC<EventProp> = (prop) => {
                     </div>
                 </div>
                 {
-                    prop.isRegisterable
+                    (prop.isRegisterable && prop.areSeatsAvailable) 
                     && <div>
                             <button className="event-register" onClick={registerEventHandler}>
                                 {isRegistered ? "UNREGISTER" : (prop.areSeatsAvailable ? "REGISTER" : null)}

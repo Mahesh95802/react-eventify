@@ -1,9 +1,14 @@
 import React from "react"
+import Footer from "../../components/footer"
+import Header from "../../components/header"
+import { ThemeProp } from "../../interfaces/themes"
 
-const NotFoundPage = () => {
+const NotFoundPage: React.FC<ThemeProp> = (prop) => {
     return (
-        <div className="404">
+        <div>
+            <Header />
             Page not Found.
+            <Footer {...prop as ThemeProp}/>
         </div>
     )
 }

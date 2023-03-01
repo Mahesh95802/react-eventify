@@ -14,3 +14,13 @@ export const PATCH_EVENT_BY_ID = (id: number) => ({
     path: `api/events/${id}`,
     method: 'PATCH'
 })
+
+export const GET_THEME = {
+    path: `api/themes`,
+    method: 'GET'
+}
+
+export const PUT_THEME = {
+    path: 'api/themes',
+    method: 'PUT'
+}
